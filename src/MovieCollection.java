@@ -1,26 +1,18 @@
+import java.util.ArrayList;
 public class MovieCollection {
-    private Movie[] movieList;
+    Controller controller = new Controller();
+    private ArrayList movieList;
 
     private int count;
 
-    public MovieCollection(int size) {
-        this.movieList = new Movie[size];
-        this.count = 0;
+    public MovieCollection(ArrayList<Movie> movieList) {
+        this.movieList=new ArrayList<>(movieList);
 
 
-    }
-    public void addMovie(String title, String director,int yearCreated, boolean isInColor,
-                         int lengthInMinutes, String genre)
-    {
-        if (count < movieList.length) {
-            movieList[count++] = new Movie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
-        } else {
-            System.out.println("Movie collection is full. Cannot add more movies.");
-        }
     }
 
     public void printCollection(){
-        for (Movie movie : movieList) {
+        for (Movie movie : controller.getMovieList()) {
             if (movie != null) {
                 System.out.println(movie);
             }
